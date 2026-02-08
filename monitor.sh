@@ -1,8 +1,14 @@
 #!/bin/bash
-echo "--- SYSTEM HEALTH REPORT ---" > health_report.txt
-date >> health_report.txt
-echo "MEMORY USAGE:" >> health_report.txt
-free -h >> health_report.txt
-echo "DISK SPACE:" >> health_report.txt
-df -h / >> health_report.txt
-echo "Report generated!"
+# This is a variable that stores the current date
+REPORT_DATE=$(date +%Y-%m-%d)
+FILENAME="report_$REPORT_DATE.txt"
+
+echo "--- SYSTEM HEALTH REPORT ---" > $FILENAME
+date >> $FILENAME
+echo "MEMORY USAGE:" >> $FILENAME
+free -h >> $FILENAME
+echo "DISK SPACE:" >> $FILENAME
+df -h / >> $FILENAME
+
+echo "Report generated: $FILENAME"
+
